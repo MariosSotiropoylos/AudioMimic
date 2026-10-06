@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎤 Sound Mimic - VS 🎤</title>
+
+    <link rel="stylesheet" href="./VersusModeStyle.css">
+</head>
+
+<body>
+ <div class="game">
+ 
+<!-- HEADER -->
+    <header>
+        <h1> 🎤 Sound Mimic 🎤 </h1>
+        <div class="subtitle"> <b> Versus Mode: </b> One player makes a sound and the other player must copy it! </div>
+    </header>
+
+
+<!-- SCOREBOARD -->
+    <div class="scoreboard">
+        <div class="score">
+		    <div class="player-icon-display"> <img id="player1Icon" src=""> </div>
+            <div class="score-name"> Player 1 </div>
+            <div id="player1Score" class="score-value"> 0</div>
+        </div>
+
+        <div class="score">
+		    <div class="player-icon-display"> <img id="player2Icon" src=""> </div>
+            <div class="score-name"> Player 2 </div>
+            <div id="player2Score" class="score-value"> 0 </div>
+        </div>
+    </div>
+
+
+<!-- ROUND SELECTION -->
+    <div id="roundSelection" class="panel hidden">
+        <h2> Choose Number of Rounds </h2>
+
+        <div class="round-description"> How many rounds would you like to play? </div>
+
+        <div class="round-buttons">
+            <button id="round5" class="play"> 5 Rounds </button>
+            <button id="round10" class="next"> 10 Rounds </button>
+        </div>
+    </div>
+
+<!-- ICON SELECTION -->
+   <div id="iconSelection" class="panel">
+	
+    <!-- PLAYER 1 ICON SELECTION -->
+     <div id="player1IconSelection">
+        <h2>Player 1 — Choose Your Icon</h2>
+        <div class="icon-grid">
+            <button class="icon-option" data-icon="1"> <img src="./images/icon1.png" alt="Icon 1"> </button>
+            <button class="icon-option" data-icon="2"> <img src="./images/icon2.png" alt="Icon 2"> </button>
+            <button class="icon-option" data-icon="3"> <img src="./images/icon3.png" alt="Icon 3"> </button>
+			<button class="icon-option" data-icon="4"> <img src="./images/icon4.png" alt="Icon 4"> </button>
+        </div>
+        <div id="player1SelectedText" class="selection-text"> Select an icon </div>
+        <button id="confirmPlayer1" class="next" disabled> Choose your icon. </button>
+     </div>
+
+    <!-- PLAYER 2 ICON SELECTION -->
+     <div id="player2IconSelection" class="hidden">
+        <h2>Player 2 — Choose Your Icon</h2>
+        <div class="icon-grid">
+            <button class="icon-option" data-icon="1"> <img src="./images/icon1.png" alt="Icon 1"> </button>
+            <button class="icon-option" data-icon="2"> <img src="./images/icon2.png" alt="Icon 2"> </button>
+            <button class="icon-option" data-icon="3"> <img src="./images/icon3.png" alt="Icon 3"> </button>
+            <button class="icon-option" data-icon="4"> <img src="./images/icon4.png" alt="Icon 4"> </button>
+        </div>
+        <div id="player2SelectedText" class="selection-text"> Select an icon </div>
+        <button id="confirmPlayer2" class="next" disabled> Confirm Player 2 </button>
+     </div>
+   </div>
+
+
+<!--  MAIN GAME PANEL -->
+    <div id="gamePanel" class="panel hidden">
+
+ <!-- TURN -->
+        <div id="turn"> Round 1 — Player 1 </div>
+
+ <!-- MESSAGE -->
+        <div id="message"> Player 1 is making the sound. Player 2 must copy it. </div>
+
+ <!-- WAVEFORM -->
+        <canvas id="waveform"> </canvas>
+
+ <!-- PITCH -->
+        <div id="pitchDisplay" class="pitch-display"> Pitch: — </div>
+
+ <!-- COUNTDOWN -->
+        <div id="countdown" class="hidden"> </div>
+
+ <!-- PLAYER 1 CONTROLS -->
+        <div id="player1Controls" class="controls">
+            <button id="recordP1" class="record"> 🎤 Start Recording </button>
+            <button id="stopP1" class="stop hidden"> ⏹ Stop </button>
+        </div>
+
+ <!-- PLAYER 2 CONTROLS -->
+        <div id="player2Controls" class="controls hidden">
+            <button id="playOriginal" class="play hidden"> 🔊 Listen the Original </button>
+            <button id="readyP2" class="play"> 🎤 I'm Ready to Mimic </button>
+            <button id="stopP2" class="stop hidden"> ⏹ Stop </button>
+        </div>
+
+ <!-- RESULT -->
+        <div id="resultArea" class="hidden">
+            <div id="resultText"> Great imitation! </div>
+			
+            <div class="score-breakdown">
+                <div class="metric">
+                    <div class="metric-name"> Pitch </div>
+                    <div id="pitchScore" class="metric-value"> 0% </div>
+                </div>
+
+                <div class="metric">
+                    <div class="metric-name"> Shape </div>
+                    <div id="shapeScore" class="metric-value"> 0% </div>
+                </div>
+
+                <div class="metric">
+                    <div class="metric-name"> Duration </div>
+                    <div id="durationScore" class="metric-value"> 0% </div>
+                </div>
+
+                <div class="metric">
+                    <div class="metric-name"> Volume </div>
+                    <div id="volumeScore" class="metric-value"> 0% </div>
+                </div>
+            </div>
+
+            <button id="nextRound" class="next"> Next Round → </button>
+        </div>
+
+ <!-- WINNER -->
+        <div id="winnerArea" class="hidden">
+            <div id="winnerText"> 🏆 Player 1 Wins! </div>
+            <button id="restart" class="restart"> 🔄 Play Again </button>
+        </div>
+    </div>
+	
+</div>
+
+<script src="./VersusMode.js"> </script>
+
+</body>
+</html>

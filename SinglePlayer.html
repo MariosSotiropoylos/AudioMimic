@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎤 Sound Mimic - 1P 🎤</title>
+	
+    <link rel="stylesheet" href="./SinglePlayerModeStyle.css">
+</head>
+
+<body>
+ <div class="game">
+
+<!-- HEADER -->
+    <header>
+        <h1> 🎤 Sound Mimic 🎤 </h1>
+        <div class="subtitle"> <b>Single Player Mode:</b> Listen carefully to each sound and see how closely you can mimic it! </div>
+    </header>
+
+<!-- SCOREBOARD -->
+    <div class="scoreboard">
+       <!-- SOUND CHARACTER -->
+        <div class="score">
+		 <div class="player-icon-display sound-character-display"> <img id="soundCharacterIcon" src=""> </div>
+         <div id="soundCharacterName" class="score-name"> Sound </div>	
+        </div>	
+	
+       <!-- PLAYER -->
+        <div class="score">
+            <div class="player-icon-display"> <img id="playerIcon" src="" alt="Player icon"> </div>
+            <div class="score-name"> Player </div>
+            <div id="playerScore" class="score-value"> 0 </div>
+        </div>
+    </div>
+
+
+<!-- ROUND SELECTION -->
+    <div id="roundSelection" class="panel hidden">
+        <h2>Choose Number of Rounds</h2>
+
+        <div class="round-description"> How many rounds would you like to play? </div>
+
+        <div class="round-buttons">
+            <button id="round5" class="play"> 5 Rounds </button>
+			<button id="round10" class="next"> 10 Rounds </button>
+        </div>
+    </div>
+
+
+<!-- ICON SELECTION -->
+    <div id="iconSelection" class="panel">
+        <div id="playerIconSelection">
+            <h2>Choose Your Icon</h2>
+            <div class="icon-grid">
+                <button class="icon-option" data-icon="1" type="button"> <img src="./images/icon1.png" alt="Icon 1"> </button>
+                <button class="icon-option" data-icon="2" type="button"> <img src="./images/icon2.png" alt="Icon 2"> </button>
+                <button class="icon-option" data-icon="3" type="button"> <img src="./images/icon3.png" alt="Icon 3"> </button>
+                <button class="icon-option" data-icon="4" type="button"> <img src="./images/icon4.png" alt="Icon 4"> </button>
+            </div>
+            <div id="playerSelectedText" class="selection-text"> Select an icon </div>
+            <button id="confirmPlayer" class="next" disabled type="button"> Choose your icon. </button>
+        </div>
+    </div>
+
+
+
+<!-- MAIN GAME PANEL -->
+    <div id="gamePanel" class="panel hidden">
+	
+ <!-- ROUND -->
+        <div id="turn"> Round 1 </div>
+
+ <!-- MESSAGE -->
+        <div id="message"> Listen carefully to the sound and try to mimic it! </div>
+
+ <!-- WAVEFORM -->
+        <canvas id="waveform"></canvas>
+
+ <!-- PITCH -->
+        <div id="pitchDisplay" class="pitch-display"> Pitch: — </div>
+
+ <!-- COUNTDOWN -->
+        <div id="countdown" class="hidden"> </div>
+
+ <!-- PLAYER CONTROLS -->
+        <div id="playerControls" class="controls">
+            <button id="playOriginal" class="play"> 🔊 Listen to the Sound </button>
+            <button id="recordPlayer" class="record"> 🎤 Start Recording </button>
+            <button id="stopPlayer" class="stop hidden"> ⏹ Stop </button>
+        </div>
+
+ <!-- RESULT -->
+        <div id="resultArea" class="hidden">
+            <div id="resultText"> Great imitation! </div>
+
+            <div class="score-breakdown">
+                <div class="metric">
+                    <div class="metric-name"> Pitch </div>
+                    <div id="pitchScore" class="metric-value"> 0% </div>
+                </div>
+
+                <div class="metric">
+                    <div class="metric-name"> Shape </div>
+                    <div id="shapeScore" class="metric-value"> 0% </div>
+                </div>
+
+                <div class="metric">
+                    <div class="metric-name"> Duration </div>
+                    <div id="durationScore" class="metric-value"> 0% </div>
+                </div>
+
+                <div class="metric">
+                    <div class="metric-name"> Volume </div>
+                    <div id="volumeScore" class="metric-value"> 0% </div>
+                </div>
+            </div>
+
+            <button id="nextRound" class="next"> Next Round → </button>
+        </div>
+
+
+ <!-- FINAL RESULT -->
+        <div id="winnerArea" class="hidden">
+            <div id="winnerText"> 🏆 Great Job! </div>
+			
+            <button id="restart" class="restart"> 🔄 Play Again </button>
+        </div>
+    </div>
+</div>
+
+<script src="./SinglePlayerMode.js"></script>
+
+</body>
+
+</html>
